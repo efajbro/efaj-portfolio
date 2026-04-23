@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
+// 1. IMPORT THE CUSTOM CURSOR HERE
+import { CustomCursor } from '@/components/sections/CustomCursor'
+
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
@@ -37,6 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark bg-zinc-950">
       <body className="font-sans antialiased bg-zinc-950 text-zinc-100">
+        
+        {/* 2. INJECT THE CURSOR COMPONENT HERE */}
+        <CustomCursor />
+        
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

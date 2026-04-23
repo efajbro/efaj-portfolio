@@ -1,7 +1,14 @@
-import Spline from '@splinetool/react-spline/next';
+"use client"; // <-- THIS IS THE MISSING MAGIC WORD
+
+import dynamic from 'next/dynamic';
+
+const Spline = dynamic(() => import('@splinetool/react-spline'), { 
+  ssr: false,
+});
 
 export function HeroSection() {
   return (
+    // ... the rest of your hero section code stays exactly the same
     <section
       id="hero"
       className="relative min-h-screen w-full flex items-center bg-zinc-950 overflow-hidden"
